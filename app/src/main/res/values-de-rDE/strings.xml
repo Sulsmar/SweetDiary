@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SweetDiary</string>
+    <string name="inserted">Daten erfolgreich übertragen</string>
+    <string name="insert_failed">Datenübertragung fehlgeschlagen</string>
+    <string name="breakfast">Morgen</string>
+    <string name="lunch">Mittag</string>
+    <string name="dinner">Abend</string>
+    <string name="snack">Snack</string>
+    <string name="blood_level">Blutwerte</string>
+    <string name="date_time">Datum und Zeit</string>
+    <string name="body_weight">Körpergewicht</string>
+    <string name="drugs">Medikamente</string>
+    <string name="amount_of_medication">Menge des Medikaments</string>
+    <string name="health_status">Wie fühlen Sie sich?</string>
+    <string name="surname">Nachname</string>
+    <string name="first_name">Vorname</string>
+    <string name="date_of_birth">Geburtsdatum</string>
+    <string name="heighht">Größe</string>
+    <string name="not_required">nicht notwendig</string>
+    <string name="next">weiter</string>
+    <string name="not_changed">unverändert</string>
+    <string name="when_measure">wann hast du gemessen ?</string>
+    <string name="sober">nüchtern</string>
+    <string name="before">vor dem Essen</string>
+    <string name="after">nach dem Essen</string>
+    <string name="feel">wie fühlst du dich ?</string>
+    <string name="good">gut</string>
+    <string name="normal">normal</string>
+    <string name="bad">schlecht</string>
+    <string name="to_save">speichern</string>
+    <string name="meal">welche Mahlzeit ?</string>
+    <string name="bwtostart">Körpergewicht zum Start</string>
+    <string name="evaluation">Auswertung</string>
+    <string name="oneweek">1 Woche</string>
+    <string name="twoweek">2 Wochen</string>
+    <string name="onemonth">1 Monat</string>
+    <string name="backtostart">zurück</string>
+    <string name="period">Zeitraum von aktuell</string>
+    <string name="send">senden</string>
+    <string name="recall">abrufen</string>
+    <string name="date">Datum</string>
+    <string name="time">Zeit</string>
+    <string name="message">Fehler!</string>
+    <string name="buttonpoint">...</string>
+
+</resources>
