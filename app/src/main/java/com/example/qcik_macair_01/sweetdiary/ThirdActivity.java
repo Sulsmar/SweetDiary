@@ -10,9 +10,10 @@ import android.widget.RadioButton;
 
 public class ThirdActivity extends AppCompatActivity {
 
-    boolean stroneweek = false;
-    boolean strtwoweek = false;
-    boolean stronemonth = false;
+
+    static final String EXTRA_MESS7 = "mess7";
+    String peroiodtime = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,23 +29,12 @@ public class ThirdActivity extends AppCompatActivity {
             }
         });
 
-        Button btn3send = (Button)findViewById(R.id.btn3tosave);
-        btn3send.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                /**
-                 * Daten auslesen, formatieren, spreichern als PDF und senden per Mail.
-                 */
-            }
-        });
+
 
         Button btnrecall = (Button) findViewById(R.id.btn3recall);
         btnrecall.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                /**
-                 * Daten auslesen, und in ListView schreiben
-                 * Anzahl wird gesteuert über den Wert aus RadioGroup
-                 * über die Variablen onweek, twoweek, onemonth
-                 */
+                // hier soll dann die Auswertung stattfinden!
             }
         });
 
@@ -56,15 +46,15 @@ public class ThirdActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.rB1Week:
                 if (checked)
-                    stroneweek = true;
+                peroiodtime = "7";
                 break;
             case R.id.rB2Week:
                 if (checked)
-                    strtwoweek = true;
+                    peroiodtime = "14";
                 break;
             case R.id.rB1Month:
                 if (checked)
-                    stronemonth = true;
+                    peroiodtime = "31";
                 break;
         }
     }

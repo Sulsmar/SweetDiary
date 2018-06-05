@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -28,7 +29,7 @@ import java.util.Locale;
  */
 
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
 
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity{
     static final String EXTRA_MESS5 = "mess5";
     static final String EXTRA_MESS6 = "mess6";
 
-
+    protected SimpleDateFormat date_format;
 
     /**
      * ---------------------------------------------------------------------------
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        SimpleDateFormat date_format;
+        //SimpleDateFormat date_format;
         if(Locale.getDefault().getLanguage() == "de")
         {
             date_format = new SimpleDateFormat("dd.MM.yyyy");
@@ -169,6 +170,13 @@ public class MainActivity extends AppCompatActivity{
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getSupportFragmentManager(), "datePicker");
 
+    }
+
+    public void onDateSet(DatePicker view, int year, int month, int day) {
+        Date date = new Date(year, month, day);
+
+        TextView etdate = (TextView) findViewById(R.id.tvdate);
+        etdate.setText(date_format.format(date));
     }
 }
 

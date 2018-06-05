@@ -34,7 +34,8 @@
     <string name="oneweek">1 Week</string>
     <string name="twoweek">2 Weeks</string>
     <string name="onemonth">1 Month</string>
-    <string name="backtostart">back</string>
+    <string name="backtostart">to start</string>
+    <string name="back">back</string>
     <string name="period">Period last</string>
     <string name="send">send</string>
     <string name="recall">recall</string>

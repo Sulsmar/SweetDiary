@@ -35,7 +35,8 @@
     <string name="oneweek">1 Woche</string>
     <string name="twoweek">2 Wochen</string>
     <string name="onemonth">1 Monat</string>
-    <string name="backtostart">zurück</string>
+    <string name="backtostart">zum Anfang</string>
+    <string name="back">zurück</string>
     <string name="period">Zeitraum von aktuell</string>
     <string name="send">senden</string>
     <string name="recall">abrufen</string>
