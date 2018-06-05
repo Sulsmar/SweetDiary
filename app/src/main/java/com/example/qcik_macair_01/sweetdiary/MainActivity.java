@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePickerFragment(this);
         newFragment.show(getSupportFragmentManager(), "datePicker");
 
     }

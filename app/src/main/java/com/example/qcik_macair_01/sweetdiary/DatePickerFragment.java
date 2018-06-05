@@ -11,6 +11,7 @@ import java.util.Calendar;
 public class DatePickerFragment extends DialogFragment {
 
     DatePickerFragment(MainActivity activity) {
+        super();
         this.activity = activity;
     }
 
