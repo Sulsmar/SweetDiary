@@ -1,6 +1,8 @@
 package com.example.qcik_macair_01.sweetdiary;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.widget.DatePicker;
 import android.app.Activity;
@@ -13,19 +15,27 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Locale;
 
 
 /**
  * TODO:
- * Werte von DatePicker noch in Variablen speichern und in Textview den Wert anzeigen,
- * weiterhin soll der Wert inder Variable in die Datenbank gespeichert werden.
- * Alternativ wird erstmal eine früherer Zustand genommen, so das das aktuele Datum und Zeit
- * angezeigt und übergeben wird, eine Änderung aber so nicht möglich ist!
+ * Datepicker funktioniert
+ * Timepicker muss noch implementiert werden
+ *
+ * Format der Variable imputtime die an die DB übergeben wird muss noch auf Format (yyyy.MM.dd)
+ * geändert werden bevor sie übergeben wird.
+ *
+ * Datenbankabfrage erstellen und über Listview ausgeben
+ *
+ * Datensätze aus Db direkt oder aus ListView aufbereiten und im Format PDF speichern über Dialog
  */
 
 
@@ -44,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     static final String EXTRA_MESS5 = "mess5";
     static final String EXTRA_MESS6 = "mess6";
 
-    protected SimpleDateFormat date_format;
+    private int hour;
+    private int minute;
+
 
     /**
      * ---------------------------------------------------------------------------
@@ -66,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
 
 
-        //SimpleDateFormat date_format;
+        final SimpleDateFormat date_format;
         if(Locale.getDefault().getLanguage() == "de")
         {
             date_format = new SimpleDateFormat("dd.MM.yyyy");
@@ -78,16 +90,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
         SimpleDateFormat timeformat = new SimpleDateFormat("hh:mm");
 
-        //etdatetime.setText(kalender.getTime().toString());
         etdate.setText(date_format.format(kalender.getTime()));
         ettime.setText(timeformat.format(kalender.getTime()));
 
-        /**
-         * dient nur für die korrekte Formatübergabe an die DB zur spätreb Sortierung
-         */
-        SimpleDateFormat dateFormat;
-        dateFormat = new SimpleDateFormat("yyyy.MM.dd");
-        final String datetoDb = dateFormat.format(kalender.getTime());
 
 
         /**
@@ -135,8 +140,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
                 EditText input_Amofmedication = (EditText) findViewById(R.id.etamofmedication);
                 String inputAmofmedication = input_Amofmedication.getText().toString();
 
-                //TextView input_Date = (TextView) findViewById(R.id.tvdate);
-                String inputDate = datetoDb;
+                TextView input_Date = (TextView) findViewById(R.id.tvdate);
+                String inputDate = input_Date.getText().toString();
+
 
                 TextView input_Time = (TextView) findViewById(R.id.tvtime);
                 String inputTime = input_Time.getText().toString();
@@ -161,22 +167,44 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         }));
     }
 
-    public void showTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "timePicker");
+    /**
+     * DatePickerDialog
+     * @param view
+     * @param year
+     * @param month
+     * @param day
+     */
+
+    public void datePicker(View view){
+        DatePickerFragment fragment = new DatePickerFragment();
+        fragment.show(getSupportFragmentManager(), "date");
     }
 
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-
+    private void setDate(final Calendar calendar){
+        final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        ((TextView) findViewById(R.id.tvdate)).setText(dateFormat.format(calendar.getTime()));
     }
 
+    @Override
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        Date date = new Date(year, month, day);
-
-        TextView etdate = (TextView) findViewById(R.id.tvdate);
-        etdate.setText(date_format.format(date));
+        Calendar cal = new GregorianCalendar(year, month, day);
+        setDate(cal);
     }
+
+
+public static class DatePickerFragment extends DialogFragment{
+        @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState){
+            final Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
+
+            return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), year, month, day);
+        }
+}
+
+
+
 }
 

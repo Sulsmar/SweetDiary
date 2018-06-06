@@ -18,6 +18,8 @@
         android:text="@string/period"
         android:textAllCaps="false"
         android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:fontFamily="@font/indieflower"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/indieflower"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:onClick="onPeriod"
             android:text="@string/oneweek" />
 
@@ -57,6 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/indieflower"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:onClick="onPeriod"
             android:text="@string/twoweek" />
 
@@ -66,6 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/indieflower"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             android:onClick="onPeriod"
             android:text="@string/onemonth" />
     </RadioGroup>
@@ -80,6 +88,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/backtostart"
         android:background="@color/health_green"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:fontFamily="@font/indieflower"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,6 +123,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/send"
         android:fontFamily="@font/indieflower"
+        android:textStyle="bold"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,6 +142,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/recall"
         android:fontFamily="@font/indieflower"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:background="@color/health_green"
         app:layout_constraintBottom_toBottomOf="parent"
