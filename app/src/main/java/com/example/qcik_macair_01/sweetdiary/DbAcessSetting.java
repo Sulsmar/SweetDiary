@@ -66,8 +66,8 @@ public class DbAcessSetting extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_EVENTS_BLOOD = "CREATE TABLE " + TABLE_NAME_BLODD + " ( "
             + ROWID + " INTEGER PRIMARY KEY NOT NULL,"
             + COL_NAME_BLOODLEVEL + "TEXT NOT NULL,"
-            + COL_NAME_DATE + "TEXT NOT NULL,"
-            + COL_NAME_TIME + "TEXT NOT NULL,"
+            + COL_NAME_DATE + "INT NOT NULL,"
+            + COL_NAME_TIME + "INT NOT NULL,"
             + COL_NAME_DRUGS + "TEXT NOT NULL"
             + COL_NAME_AMOFMEDICATION + "TEXT NOT NULL,"
             + COL_NAME_BODYWEIGHT + "TEXT NOT NULL,"
@@ -116,7 +116,7 @@ public class DbAcessSetting extends SQLiteOpenHelper {
      *  ----------------------------------------------------------------------------------------
      *  unten für die veränderlichen Daten der Messungen!
      */
-    public void insertValues (String bloodlevel, String date, String time, String drugs, String amofmedication, String bodyweight, String mesure, String meal, String feel){
+    public void insertValues (String bloodlevel, Integer date, Integer time, String drugs, String amofmedication, String bodyweight, String mesure, String meal, String feel){
         try{
             SQLiteDatabase db = getWritableDatabase();
             ContentValues values = new ContentValues();

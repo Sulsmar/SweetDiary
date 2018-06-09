@@ -32,7 +32,9 @@ public class SecondaryActivity extends AppCompatActivity{
         final String inputDrugs = extras.getString(MainActivity.EXTRA_MESS2);
         final String inputAmofmedication = extras.getString(MainActivity.EXTRA_MESS3);
         final String inputDate = extras.getString(MainActivity.EXTRA_MESS4);
+        final Integer date = Integer.parseInt(inputDate); // wird extra auf Int gecastet für die Datenbank
         final String inputTime = extras.getString(MainActivity.EXTRA_MESS5);
+        final Integer time = Integer.parseInt(inputTime); // wird extra auf Int gecastet für die Datenbank
         final String inputBodyweight = extras.getString(MainActivity.EXTRA_MESS6);
 
 
@@ -43,7 +45,7 @@ public class SecondaryActivity extends AppCompatActivity{
             public void onClick(View v) {
 
 
-                dbConnection.insertValues(inputBlood, inputDate, inputTime, inputDrugs, inputAmofmedication, inputBodyweight, strmeasure, strmeal, strfeel);
+                dbConnection.insertValues(inputBlood, date, time, inputDrugs, inputAmofmedication, inputBodyweight, strmeasure, strmeal, strfeel);
             }
         });
     }
